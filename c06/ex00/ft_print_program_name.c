@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhakan <yhakan@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 01:44:28 by yhakan            #+#    #+#             */
-/*   Updated: 2023/04/10 05:38:10 by yhakan           ###   ########.fr       */
+/*   Created: 2023/04/10 05:31:13 by yhakan            #+#    #+#             */
+/*   Updated: 2023/04/10 05:31:15 by yhakan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include <unistd.h>
+
+int	main(int argc, char *argv[])
 {
 	int	i;
-	int	nb;
-	int	say;
 
 	i = 0;
-	say = 0;
-	nb = 0;
-	while ((str[i] <= 13 && str[i] >= 9) || str[i] == 32)
-		i++;
-	while (str[i] == 43 || str[i] == 45)
+	if (argc >= 1)
 	{
-		if (str[i] == '-')
-			say++;
-		i++;
+		while (argv[0][i])
+		{
+			write (1, &argv[0][i], 1);
+			i++;
+		}
 	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		nb = nb + str[i] - 48;
-		if (str[i + 1] >= 48 && str[i + 1] <= 57)
-			nb *= 10;
-		i++;
-	}
-	if (say % 2 == 1)
-		nb = -nb;
-	return (nb);
+	write(1, "\n", 1);
+	return (0);
 }
- 

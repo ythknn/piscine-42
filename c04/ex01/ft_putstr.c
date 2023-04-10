@@ -6,7 +6,7 @@
 /*   By: yhakan <yhakan@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 06:01:19 by yhakan            #+#    #+#             */
-/*   Updated: 2023/04/06 06:03:00 by yhakan           ###   ########.fr       */
+/*   Updated: 2023/04/09 09:46:34 by yhakan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

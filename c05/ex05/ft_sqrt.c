@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhakan <yhakan@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 01:44:28 by yhakan            #+#    #+#             */
-/*   Updated: 2023/04/10 05:38:10 by yhakan           ###   ########.fr       */
+/*   Created: 2023/04/09 20:27:39 by yhakan            #+#    #+#             */
+/*   Updated: 2023/04/09 20:27:47 by yhakan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_sqrt(int nb)
 {
-	int	i;
-	int	nb;
-	int	say;
+	long	index;
+	long	a;
 
-	i = 0;
-	say = 0;
-	nb = 0;
-	while ((str[i] <= 13 && str[i] >= 9) || str[i] == 32)
-		i++;
-	while (str[i] == 43 || str[i] == 45)
+	a = nb;
+	if (a <= 0)
 	{
-		if (str[i] == '-')
-			say++;
-		i++;
+		return (0);
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	if (a == 1)
 	{
-		nb = nb + str[i] - 48;
-		if (str[i + 1] >= 48 && str[i + 1] <= 57)
-			nb *= 10;
-		i++;
+		return (1);
 	}
-	if (say % 2 == 1)
-		nb = -nb;
-	return (nb);
+	index = 2;
+	if (a >= 2)
+	{
+		while (index * index <= a)
+		{
+			if (index * index == a)
+			{
+				return (index);
+			}
+			index++;
+		}
+	}
+	return (0);
 }
- 

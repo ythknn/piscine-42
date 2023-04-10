@@ -6,7 +6,7 @@
 /*   By: yhakan <yhakan@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 01:45:04 by yhakan            #+#    #+#             */
-/*   Updated: 2023/04/09 01:45:06 by yhakan           ###   ########.fr       */
+/*   Updated: 2023/04/09 09:47:29 by yhakan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ int	checkerror(char *str)
 	int	i;
 	int	j;
 	int	x;
-	
+
 	x = ft_strlen(str);
 	i = 0;
 	if (str[0] == '\0' || x == 1)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if (str[i] <= 32 || str[i] == 127 || str[i] == 43 || str[i] == 45)
+		if (str[i] <= 32 || str[i] == 43 || str[i] == 45)
 			return (0);
 		j = i + 1;
 		while (j < ft_strlen(str))
@@ -55,8 +55,8 @@ int	checkerror(char *str)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	len;
-	int	error;
+	int		len;
+	int		error;
 	long	nb;
 
 	error = checkerror(base);

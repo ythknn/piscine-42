@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhakan <yhakan@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 01:44:28 by yhakan            #+#    #+#             */
-/*   Updated: 2023/04/10 05:38:10 by yhakan           ###   ########.fr       */
+/*   Created: 2023/04/09 20:27:56 by yhakan            #+#    #+#             */
+/*   Updated: 2023/04/09 20:27:56 by yhakan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_is_prime(int nb)
 {
 	int	i;
-	int	nb;
-	int	say;
 
-	i = 0;
-	say = 0;
-	nb = 0;
-	while ((str[i] <= 13 && str[i] >= 9) || str[i] == 32)
-		i++;
-	while (str[i] == 43 || str[i] == 45)
+	i = 2;
+	if (nb < 2)
+		return (0);
+	while (i <= nb / i)
 	{
-		if (str[i] == '-')
-			say++;
+		if (nb % i == 0)
+			return (0);
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		nb = nb + str[i] - 48;
-		if (str[i + 1] >= 48 && str[i + 1] <= 57)
-			nb *= 10;
-		i++;
-	}
-	if (say % 2 == 1)
-		nb = -nb;
-	return (nb);
+	return (1);
 }
- 
+
+int	ft_find_next_prime(int nb)
+{
+	if (nb < 2)
+		return (2);
+	while (nb >= 2)
+	{
+		if (ft_is_prime(nb) == 1)
+			return (nb);
+		nb++;
+	}
+	return (0);
+}
